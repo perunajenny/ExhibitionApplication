@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"> 
+<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<head>
+    <title>Edit exhibition</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<h1>Edit exhibition</h1>
+		<form th:object="${exhibition}" th:action="@{../saveexhibition}" action="#" method="post">
+			<input type="hidden" id="exhibitionid" th:field="*{exhibitionid}" readonly="readonly" />
+		  	<label for="name">Name</label>
+			<input type="text" id="name" th:field="*{name}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<label for="time">Time</label>
+			<input type="text" id="time" th:field="*{time}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<div style="clear: both; display: block; height: 10px;"></div>						
+		  	<label for="exhlist">Artist</label>
+			 <select id="exhlist" th:field="*{artist}" class="form-control">
+       			<option th:each="artist: ${artists}" th:value="${artist.artistid}" th:text="${artist.name}"></option>
+    		</select>
+			
+		<div style="clear: both; display: block; height: 10px;"></div>
+		<input type="submit" value="Save"></input>
+		
+		</form>
+
+</body>
+</html>

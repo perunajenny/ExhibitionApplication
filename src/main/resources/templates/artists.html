@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"> 
+<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<head>
+    <title>Exhibitions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<h1>Artists</h1>
+    <table class="table table-striped">
+		<tr>
+		    <th>Name</th>
+		    <th>Country</th>
+		    <th>Year of birth</th>
+
+		</tr>  
+		<tr th:each = "artist : ${artists}">
+    		<td th:text="${artist.name}"></td>
+    		<td th:text="${artist.country}"></td>
+    		<td th:text="${artist.birthyear}"></td>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/deleteart/{id}(id=${artist.artistid})}">Delete</a></td>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editart/{id}(id=${artist.artistid})}">Edit</a></td> 
+	</tr>
+     </table>
+     <br>
+     <a href="/addartist">Add a new artist</a>  	
+     <br>
+     <a href="/index">Return to start page</a>
+
+</body>
+</html>

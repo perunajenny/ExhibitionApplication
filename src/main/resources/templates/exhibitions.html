@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"> 
+<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}" />
+<head>
+    <title>Exhibitions</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<h1>Exhibitions</h1>
+    <table class="table table-striped">
+		<tr>
+		    <th>Name</th>
+		    <th>Artist</th>
+		    <th>Time</th>
+		    <!--
+		    <th>Museum</th>
+		      -->
+		</tr>  
+		<tr th:each = "exhibition : ${exhibitions}">
+    		<td th:text="${exhibition.name}"></td>
+    		<td th:text="${exhibition.artist.name}"></td>
+    		<td th:text="${exhibition.time}"></td>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/deleteex/{id}(id=${exhibition.exhibitionid})}">Delete</a></td>
+    		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editex/{id}(id=${exhibition.exhibitionid})}">Edit</a></td> 
+    		<!--
+    		<td th:text="${exhibition.museum.name}"></td>
+    		  -->
+	</tr>
+     </table>
+     
+      <a href="/addexhibition">Add a new exhibiton</a> 
+     <br>
+     <a href="/index">Return to start page</a>
+
+</body>
+</html>

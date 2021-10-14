@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"> 
+<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+<head>
+    <title>Aloitussivu</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<form th:action="@{/logout}" method="post">
+       <input type="submit" value="Sign Out"/>
+</form>
+<p>Welcome to the exhibitions application!</p>
+<br>
+<p>Please choose what you would like to view:</p>
+<a href="/exhibitions">Exhibitions</a>
+<a href="/artists">Artists</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5"> 
+<link type="text/css" rel="stylesheet" th:href="@{css/bootstrap.min.css}"/>
+<head>
+    <title>Edit artist information</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<h1>Edit artist information</h1>
+		<form th:object="${artist}" th:action="@{../saveartist}" action="#" method="post">
+			<input type="hidden" id="artistid" th:field="*{artistid}" readonly="readonly" />
+		  	<label for="name">Name</label>
+			<input type="text" id="name" th:field="*{name}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<label for="country">Country</label>
+			<input type="text" id="country" th:field="*{country}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+			
+			<label for="birthyear">Year of birth</label>
+			<input type="text" id="birthyear" th:field="*{birthyear}" />
+			<div style="clear: both; display: block; height: 10px;"></div>
+		
+		<input type="submit" value="Save"></input>
+		
+		</form>
+
+</body>
+</html>
