@@ -13,14 +13,15 @@
 		    <th>Name</th>
 		    <th>Artist</th>
 		    <th>Time</th>
-		    <!--
+		 
 		    <th>Museum</th>
-		      -->
+		      
 		</tr>  
 		<tr th:each = "exhibition : ${exhibitions}">
     		<td th:text="${exhibition.name}"></td>
     		<td th:text="${exhibition.artist.name}"></td>
     		<td th:text="${exhibition.time}"></td>
+    		<td th:text="${exhibition.museum.name}"></td>
     		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/deleteex/{id}(id=${exhibition.exhibitionid})}">Delete</a></td>
     		<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editex/{id}(id=${exhibition.exhibitionid})}">Edit</a></td> 
     		<!--
@@ -29,9 +30,9 @@
 	</tr>
      </table>
      
-      <a href="/addexhibition">Add a new exhibiton</a> 
+      <a href="/addexhibition" class="btn btn-primary">Add a new exhibiton</a> 
      <br>
-     <a href="/index">Return to start page</a>
+     <a href="/index" class="btn btn-primary">Return to start page</a>
 
 </body>
 </html>

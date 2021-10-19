@@ -37,13 +37,14 @@ public class ExhibitionApplication {
 			arepository.save(new Artist("Emma Jääskeläinen", "Finland", 1988));
 			arepository.save(new Artist("Lee Mingwei", "Taiwan", 1964));
 			
+			/*
 			erepository.save(new Exhibition("Proper Omelette", "2.6.2020-10.1.2021", arepository.findByName("Emma Jääskeläinen").get(0)));
 			erepository.save(new Exhibition("Sonic Blossom", "24.9.-24.10.2021", arepository.findByName("Lee Mingwei").get(0)));
-			
-			/*
-			erepository.save(new Exhibition("Proper Omelette", arepository.findByName("Emma Jääskeläinen").get(0),mrepository.findByName("Kiasma").get(0)));
-			erepository.save(new Exhibition("Sonic Blossom", arepository.findByName("Lee Mingwei").get(0), mrepository.findByName("Ateneum").get(0)));
 			*/
+			
+			erepository.save(new Exhibition("Proper Omelette", "2.6.2020-10.1.2021", arepository.findByName("Emma Jääskeläinen").get(0), mrepository.findByName("Kiasma").get(0)));
+			erepository.save(new Exhibition("Sonic Blossom", "24.9.-24.10.2021", arepository.findByName("Lee Mingwei").get(0), mrepository.findByName("Ateneum").get(0)));
+			
 			
 			User user1 = new User("user", "$2a$10$DRw6dIwHoniI4TDRUNy63ODpUjVUsrI5b/XKFopj0tOMigkC4tnq2", "USER");
 			User user2 = new User("admin", "$2a$10$XD8eH.b/Xt5c7y0KcjnKkOFEvRS2RyU97.A6IUgkmk.lPQtslA2i2", "ADMIN");

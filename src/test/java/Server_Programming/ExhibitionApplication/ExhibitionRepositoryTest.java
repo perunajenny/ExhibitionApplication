@@ -15,6 +15,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import Server_Programming.ExhibitionApplication.domain.ArtistRepository;
 import Server_Programming.ExhibitionApplication.domain.Exhibition;
 import Server_Programming.ExhibitionApplication.domain.ExhibitionRepository;
+import Server_Programming.ExhibitionApplication.domain.MuseumRepository;
 
 
 @ExtendWith(SpringExtension.class)
@@ -28,6 +29,9 @@ public class ExhibitionRepositoryTest {
 	
 	@Autowired
 	ArtistRepository arepository;
+	
+	@Autowired
+	MuseumRepository mrepository;
 
 	@Test
 	public void findByAuthorShouldReturnAuthor() {
@@ -47,7 +51,7 @@ public class ExhibitionRepositoryTest {
 
 	@Test
 	public void insertNewExhibition() {
-		Exhibition exhibition = new Exhibition("Off Topic", "02.06.2021-12.12.2021", arepository.findByName("Emma Jääskeläinen").get(0));
+		Exhibition exhibition = new Exhibition("Off Topic", "02.06.2021-12.12.2021", arepository.findByName("Emma Jääskeläinen").get(0), mrepository.findByName("Kiasma").get(0));
 		erepository.save(exhibition);
 		List<Exhibition> exhibitions = erepository.findByName("Off Topic");
 		Assertions.assertThat(exhibitions.get(0).getName()).isEqualTo("Off Topic");

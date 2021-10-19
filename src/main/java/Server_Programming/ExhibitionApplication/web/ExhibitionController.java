@@ -90,6 +90,7 @@ public class ExhibitionController {
     public String editExhibition(@PathVariable("id") Long exhibitionId, Model model){
     model.addAttribute("exhibition", erepository.findById(exhibitionId));
     model.addAttribute("artists", arepository.findAll());
+    model.addAttribute("museums", mrepository.findAll());
     return "editexhibition";
     }
     

@@ -29,15 +29,28 @@ public class Exhibition {
 	    @JoinColumn(name = "artistid")
 	    private Artist artist;
 	  
-	  	/*
 	    @ManyToOne
+	    @JsonIgnore 
 	    @JoinColumn(name = "museumid")
 	    private Museum museum;
-	    */
+
 
 		public Exhibition() {
 			super();
 		}
+		
+		
+
+		public Exhibition(@NotNull @Size(min = 1, max = 200) String name, @NotNull @Size(min = 8, max = 21) String time,
+				Artist artist, Museum museum) {
+			super();
+			this.name = name;
+			this.time = time;
+			this.artist = artist;
+			this.museum = museum;
+		}
+
+
 
 		public Exhibition(String name, String time, Artist artist) {
 			super();
@@ -71,7 +84,7 @@ public class Exhibition {
 		}
 		
 		
-		/*
+		
 		public Museum getMuseum() {
 			return museum;
 		}
@@ -79,7 +92,7 @@ public class Exhibition {
 		public void setMuseum(Museum museum) {
 			this.museum = museum;
 		}
-		*/
+		
 
 		public String getTime() {
 			return time;

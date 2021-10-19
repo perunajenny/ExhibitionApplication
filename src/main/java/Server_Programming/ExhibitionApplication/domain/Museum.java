@@ -18,9 +18,9 @@ public class Museum {
 	private long museumid;
 	private String name, country, address;
 	
-	/*
+	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "museum")
-	private List<Exhibition> exhibitions;*/
+	private List<Exhibition> exhibitions;
 
 	public Museum() {
 		super();
@@ -56,14 +56,15 @@ public class Museum {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	/*
+	
 	public List<Exhibition> getExhibitions() {
 		return exhibitions;
 	}
 
 	public void setExhibitions(List<Exhibition> exhibitions) {
 		this.exhibitions = exhibitions;
-	}*/
+	}
+	
 
 	public String getName() {
 		return name;
