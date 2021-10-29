@@ -20,12 +20,13 @@ import Server_Programming.ExhibitionApplication.domain.UserRepository;
 
 @SpringBootApplication
 public class ExhibitionApplication {
-	private static final Logger log = LoggerFactory.getLogger(ExhibitionApplication.class);
+	/*private static final Logger log = LoggerFactory.getLogger(ExhibitionApplication.class);*/
 
 	public static void main(String[] args) {
 		SpringApplication.run(ExhibitionApplication.class, args);
 	}
 	
+	/*
 	@Bean
 	public CommandLineRunner exhibitionapplication(ArtistRepository arepository, MuseumRepository mrepository, ExhibitionRepository erepository, UserRepository urepository) {
 		return (args) -> {
@@ -40,7 +41,7 @@ public class ExhibitionApplication {
 			/*
 			erepository.save(new Exhibition("Proper Omelette", "2.6.2020-10.1.2021", arepository.findByName("Emma Jääskeläinen").get(0)));
 			erepository.save(new Exhibition("Sonic Blossom", "24.9.-24.10.2021", arepository.findByName("Lee Mingwei").get(0)));
-			*/
+			
 			
 			erepository.save(new Exhibition("Proper Omelette", "2.6.2020-10.1.2021", arepository.findByName("Emma Jääskeläinen").get(0), mrepository.findByName("Kiasma").get(0)));
 			erepository.save(new Exhibition("Sonic Blossom", "24.9.-24.10.2021", arepository.findByName("Lee Mingwei").get(0), mrepository.findByName("Ateneum").get(0)));
@@ -54,10 +55,10 @@ public class ExhibitionApplication {
 			log.info("fetch all exhibitions");
 			for (Exhibition exhibition : erepository.findAll()) {
 				log.info(exhibition.toString());
-			}
+			} */
 
-		};
+		
 	}
 	
 
-}
+

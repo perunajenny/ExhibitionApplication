@@ -31,7 +31,7 @@ public class ExhibitionController {
 	private ExhibitionRepository erepository;
 	
 	@RequestMapping(value = "/index", method = RequestMethod.GET)
-	public String returnBook() {
+	public String returnIndex() {
 		return "index";
 	}
 	
@@ -47,12 +47,14 @@ public class ExhibitionController {
         return "artists";
     }
 	
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/addartist")
     public String addArtist(Model model){
     	model.addAttribute("artist", new Artist());
         return "addartist";
     }
     
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/saveartist", method = RequestMethod.POST)
     public String save(@Valid Artist artist, BindingResult bindingResult){
     	if (bindingResult.hasErrors()) {
@@ -62,13 +64,16 @@ public class ExhibitionController {
         return "redirect:artists";
     }
     
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/addexhibition")
     public String addExhibition(Model model){
     	model.addAttribute("exhibition", new Exhibition());
     	model.addAttribute("artists", arepository.findAll());
+    	model.addAttribute("museums", mrepository.findAll());
         return "addexhibition";
     }
     
+    @PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/saveexhibition", method = RequestMethod.POST)
     public String save(@Valid Exhibition exhibition, BindingResult bindingResult){
     	if (bindingResult.hasErrors()) {

@@ -25,6 +25,12 @@
 			 <select id="exhlist" th:field="*{artist}" class="form-control">
        			<option th:each="artist: ${artists}" th:value="${artist.artistid}" th:text="${artist.name}"></option>
     		</select>
+
+			<div style="clear: both; display: block; height: 10px;"></div>						
+		  	<label for="mlist">Museum</label>
+			 <select id="mlist" th:field="*{museum}" class="form-control">
+       			<option th:each="museum: ${museums}" th:value="${museum.museumid}" th:text="${museum.name}"></option>
+    		</select>
 			
 		<div style="clear: both; display: block; height: 10px;"></div>
 		<input type="submit" value="Save"></input>

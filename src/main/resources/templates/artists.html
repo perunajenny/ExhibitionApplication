@@ -24,7 +24,7 @@
 	</tr>
      </table>
      <br>
-     <a href="/addartist" class="btn btn-primary">Add a new artist</a>  	
+     <a sec:authorize="hasAuthority('ADMIN')" href="/addartist" class="btn btn-primary">Add a new artist</a>  	
      <br>
      <a href="/index" class="btn btn-primary">Return to start page</a>
 

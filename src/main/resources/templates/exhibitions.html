@@ -13,7 +13,6 @@
 		    <th>Name</th>
 		    <th>Artist</th>
 		    <th>Time</th>
-		 
 		    <th>Museum</th>
 		      
 		</tr>  
@@ -30,7 +29,7 @@
 	</tr>
      </table>
      
-      <a href="/addexhibition" class="btn btn-primary">Add a new exhibiton</a> 
+      <a sec:authorize="hasAuthority('ADMIN')" href="/addexhibition" class="btn btn-primary">Add a new exhibiton</a> 
      <br>
      <a href="/index" class="btn btn-primary">Return to start page</a>
 
