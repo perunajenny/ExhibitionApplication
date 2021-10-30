@@ -1,0 +1,54 @@
+SET FOREIGN_KEY_CHECKS=0;
+DROP TABLE IF EXISTS exhibition; 
+DROP TABLE IF EXISTS artist; 
+DROP TABLE IF EXISTS museum;
+SET FOREIGN_KEY_CHECKS=1;
+
+CREATE TABLE exhibition
+(exhibitionid BIGINT NOT NULL AUTO_INCREMENT
+, name VARCHAR(50) NOT NULL
+, time VARCHAR(50) NOT NULL
+, artistid BIGINT
+, museumid BIGINT
+, PRIMARY KEY (exhibitionid)
+, FOREIGN KEY (artistid) REFERENCES artist(artistid)
+, FOREIGN KEY (museumid) REFERENCES museum(museumid)
+);
+
+CREATE TABLE artist (
+artistid BIGINT NOT NULL AUTO_INCREMENT
+, name VARCHAR(50) NOT NULL
+, country VARCHAR(50) NOT NULL
+, birthyear INT
+, PRIMARY KEY (artistid)
+);
+
+CREATE TABLE museum (
+museumid BIGINT NOT NULL AUTO_INCREMENT
+, name VARCHAR(50) NOT NULL
+, country VARCHAR(50) NOT NULL
+, address VARCHAR(50) NOT NULL
+, PRIMARY KEY (museumid)
+);
+
+CREATE TABLE user
+(id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY
+,username VARCHAR(250) NOT NULL
+,password VARCHAR(250) NOT NULL
+,role VARCHAR(20) NOT NULL);
+
+INSERT INTO artist (name, country, birthyear) 
+VALUES ('Juhani Linnovaara', 'Finland', 1934), 
+('Joan Miró','Spain', 1893);
+
+INSERT INTO museum (name, country, address) 
+VALUES ('Ateneum', 'Finland', 'Kaivokatu 2'), 
+('Fotografiska','Sweden', 'Stadsgårdshamnen 22');
+
+INSERT INTO exhibition (name, time, artistid, museumid) 
+VALUES ('Suomalaiset nykytaiteilijat', '01.01.2020-31.03.2020', 1, 1), 
+('Spain in pictures', '14.02.2021-30.06.2021', 2, 2);
+
+INSERT INTO user (username, password, role) 
+VALUES ("user", "$2a$10$1DTvwpXVBArGFixHBuzVJObjTuXhIOkx5pse6KsYs8/C2ckxnGEou", "USER"), 
+("admin", "$2a$10$cDZgyF4xaPMmmoRW3OVcmuf.8o2YSx8.M7CeRKqi.1PVw.t3E8uEC", "ADMIN");
